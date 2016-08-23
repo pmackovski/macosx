@@ -11,6 +11,8 @@ if [ $# -eq 0 ]; then
 fi
 
 USERNAME=$1
+
+#use apg tool to generate random password
 PASSWD=$(apg -n 1 -m 12 -x 12 -M SNCL -c cl_seed -a 1)
 
 #create user
