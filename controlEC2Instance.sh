@@ -1,7 +1,7 @@
 #controlEC2Instance.sh
 #Phil Mackovski
 
-#stop/start EC2 instances based on "owner" tag
+#stop/start EC2 instances based on "Owner" tag
 
 #!/bin/bash
 
@@ -12,7 +12,7 @@ fi
 
 OWNER=Phil
 
-#retrieve instances based on owner tag
+#retrieve instances based on "Owner" tag
 INSTANCES=$(aws ec2 describe-tags --filters "Name=key,Values=Owner" "Name=value,Values=$OWNER" --output text | awk '{print $3}')
 
 #stop or start instances
