@@ -13,9 +13,7 @@ fi
 OWNER=Phil
 
 #retrieve instances based on "Owner" tag
-INSTANCES=$(aws ec2 describe-tags --filters "Name=key,Values=Owner" "Name=value,Values=$OWNER" --output text | grep "i-" | awk '{print $3}')
-
-echo "Instances: $INSTANCES"
+INSTANCES=$(aws ec2 describe-tags --filters "Name=key,Values=Owner" "Name=value,Values=$OWNER" "Name=resource-type,Values=instance" --output text | awk '{print $3}')
 
 #stop or start instances
 case "$1" in
